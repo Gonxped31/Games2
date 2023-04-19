@@ -1,0 +1,140 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(9, 7rem);
+    grid-template-rows: 10rem 10rem 4rem 10rem 10rem;
+    gap: .5rem;
+    justify-content: center;
+    padding-top: 1rem;
+    background-color: brown;
+}
+
+/* Computer CSS */
+.computer-card-slot {
+    height: 100%;
+    width: 100%;
+    grid-row: 1;
+    user-select: none;
+
+}
+
+.computer-card-set {
+    grid-row: 2;
+    grid-column: 5;
+    border: 2px solid black;
+    user-select: none;
+}
+
+.computerStars {
+    width: 100%;
+    grid-column: 3;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    font-size: xx-large;
+    font-weight: 700;
+    user-select: none;
+}
+
+.computerStarsPic {
+    border: 0px;
+    grid-row: 2;
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* Player CSS */
+.player-card-slot {
+    height: 100%;
+    width: 100%;
+    grid-row: 5;
+    border: 1px;
+    user-select: none;
+}
+
+.player-card-set {
+    grid-row: 4;
+    grid-column: 5;
+    user-select: none;
+    border: 2px solid black;
+
+}
+
+.playerStars {
+    width: 100%;
+    grid-column: 3;
+    grid-row: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    font-size: xx-large;
+    font-weight: 700;
+    user-select: none;
+}
+
+.playerStarsPic {
+    border: 0px;
+    grid-row: 4;
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Texts */
+.text {
+    width: 100%;
+    grid-row: 3;
+    grid-column: 5 / 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    font-size: xx-large;
+    font-weight: 700;
+}
+
+ul {
+    grid-row: 5;
+    grid-column: 10;
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    
+    margin-bottom: 10px;
+}
+
+a {
+    display: block;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    background-color: #f0f0f0;
+}
+
+a:hover {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+
