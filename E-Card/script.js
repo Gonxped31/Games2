@@ -1,15 +1,16 @@
 import Deck from "./deck.js";
 
-// Create the image path : images/imageName.jpg
+// Create the image path : images/imageName.jpg.
 function imagesSrc(imgType) {
     return 'images/' + imgType + '.jpg';
 }
 
-// HTML image
+// HTML image.
 function createImages(source, height, width){
-    return '<img src="' + source + '" height="' + height + '" width="' + width + '">';
+    return '<img src="' + source + '" height="' + height + '" width="' + width + '" draggable="true' + '" ondragstart="drag(event)' + '">';
 }
 
+// Variables.
 let height = 157;
 let width = 109;
 
@@ -22,13 +23,13 @@ const computerSlots = document.querySelectorAll(".computer-card-slot");
 
 const playerSlots = document.querySelectorAll(".player-card-slot");
 
-
 const computerCardSetElement = document.querySelector(".computer-card-set");
 const playerCardSetElement = document.querySelector(".player-card-set");
 const text = document.querySelector(".text");
 
 let playerSlot, computerSlot, status;
 
+// ClickListener.
 function clickListener(n) {
 	return function() {
 		if (status === "play") {
@@ -44,6 +45,7 @@ function clickListener(n) {
 	};
 }
 
+// Add addEventListener to the player cards.
 for (let i = 0; i < playerSlots.length; ++i) {
     playerSlots[i].addEventListener("click", clickListener(i));
 }
@@ -122,6 +124,18 @@ function movePlayerCardsToSet(cardIndex) {
     }
 }
 
+// Check the number of good cards in the computeur deck.
+function nbOfgoodCards(slots) {
+    let count = 0;
+    for (let elem of slots) {
+        if (elem !== null) {
+            count ++
+        }
+    }
+    return count
+}
+
+// Choose a card between the cards available in the computeur card slot.
 function chooseCard(slots) {
 
     let goodCards = nbOfgoodCards(slots);
@@ -138,6 +152,7 @@ function chooseCard(slots) {
     }
 }
 
+// Put null in the index of the card when the card have already been used.
 function setCardToNull(slots, index) {
     slots[index] = null;
 }
@@ -155,6 +170,7 @@ function moveComputerCardsToSet() {
     }
 }
 
+// Check the winner and display the right message based on the result.
 function isWinner(){
 
     const playerCard = playerCardSetElement.innerHTML;
@@ -196,16 +212,6 @@ function isWinner(){
         }
     }
 
-}
-
-function nbOfgoodCards(slots) {
-    let count = 0;
-    for (let elem of slots) {
-        if (elem !== null) {
-            count ++
-        }
-    }
-    return count
 }
 
 function getRandomInt(max) {
